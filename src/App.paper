@@ -155,7 +155,7 @@
             &[is-null='no'] {
                 &>.open {
                     left: 5px;
-                    top: 347px;
+                    top: 345px;
 
                     &>label {
                         width: 50px;
