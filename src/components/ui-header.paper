@@ -1,0 +1,44 @@
+<template>
+    <header>
+        <h2>
+            Video Player
+        </h2>
+        <div>
+            <ui-search></ui-search>
+        </div>
+    </header>
+</template>
+
+<script>
+    import uiSearch from './ui-search.paper';
+
+    export default {
+        component: {
+            uiSearch
+        }
+    };
+</script>
+<style>
+    [quickpaper] {
+        &>header {
+            box-shadow: 0 0 7px 3px #d6d4d4;
+            line-height: 70px;
+
+            &>h2 {
+                display: inline-block;
+                vertical-align: top;
+                background-image: url('../assets/logo.png');
+                background-repeat: no-repeat;
+                padding-left: 55px;
+                background-position: left center;
+                margin-left: 20px;
+                font-size: 20px;
+            }
+
+            &>div {
+                float: right;
+                padding-right: 20px;
+            }
+        }
+    }
+</style>

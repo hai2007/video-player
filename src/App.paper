@@ -1,0 +1,30 @@
+<template>
+    <ui-header></ui-header>
+    <div class="video">
+
+    </div>
+    <ui-footer></ui-footer>
+</template>
+<script>
+    import uiHeader from './components/ui-header.paper';
+    import uiFooter from './components/ui-footer.paper';
+
+    export default {
+        data() {
+            return {
+
+            };
+        },
+        component: {
+            uiHeader,
+            uiFooter
+        }
+    };
+</script>
+<style>
+    .video {
+        width: 100vw;
+        min-height: calc(100vh - 176px);
+        background-color: #fafafa;
+    }
+</style>
