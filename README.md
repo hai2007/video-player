@@ -1,4 +1,4 @@
-# Video Player - 视频播放器
+# [Video Player - 视频播放器](https://hai2007.github.io/video-player/)
 
 ## Issues
 使用的时候遇到任何问题或有好的建议，请点击进入[issue](https://github.com/hai2007/video-player/issues)，欢迎参与维护！
