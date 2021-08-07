@@ -4,7 +4,7 @@
         <div class="view" :is-null='videoSrc==""?"yes":"no"'>
 
             <!-- 播放器 -->
-            <video :src="videoSrc" width='640px' height="360px" id='video'></video>
+            <video :src="videoSrc" width='960px' height="540px" id='video'></video>
 
             <!-- 打开视频开关 -->
             <div class="open">
@@ -72,9 +72,9 @@
         text-align: center;
 
         &>.view {
-            width: 640px;
+            width: 960px;
             display: inline-block;
-            margin: 70px;
+            margin: 20px;
             position: relative;
 
             &>video {
@@ -100,7 +100,7 @@
 
             &>.controls {
                 display: inline-block;
-                width: 640px;
+                width: 960px;
                 height: 50px;
                 background-color: white;
                 text-align: left;
@@ -115,6 +115,16 @@
                     outline: none;
                     border: none;
                     cursor: pointer;
+                    background-size: 100% auto;
+                    font-size: 0;
+
+                    &.play {
+                        background-image: url('./assets/start.png');
+                    }
+
+                    &.pause {
+                        background-image: url('./assets/pause.png');
+                    }
 
                     &.full {
                         float: right;
@@ -142,8 +152,8 @@
                 }
 
                 &>.open {
-                    left: 245px;
-                    top: 105px;
+                    left: 405px;
+                    top: 195px;
 
                     &>label {
                         width: 150px;
@@ -155,7 +165,7 @@
             &[is-null='no'] {
                 &>.open {
                     left: 5px;
-                    top: 345px;
+                    top: 525px;
 
                     &>label {
                         width: 50px;
