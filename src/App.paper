@@ -88,7 +88,7 @@
                 &>label {
                     display: inline-block;
                     font-size: 0;
-                    background-image: url('./assets/logo.png');
+                    background-image: url('./image/logo.png');
                     background-size: 100% auto;
                     cursor: pointer;
                 }
@@ -119,16 +119,16 @@
                     font-size: 0;
 
                     &.play {
-                        background-image: url('./assets/start.png');
+                        background-image: url('./image/start.png');
                     }
 
                     &.pause {
-                        background-image: url('./assets/pause.png');
+                        background-image: url('./image/pause.png');
                     }
 
                     &.full {
                         float: right;
-                        background-image: url('./assets/full.png');
+                        background-image: url('./image/full.png');
                         font-size: 0;
                         background-repeat: no-repeat;
                         background-size: 65% auto;

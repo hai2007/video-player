@@ -29,7 +29,7 @@
         outline: none;
         padding: 0 10px;
         padding-right: 35px;
-        background-image: url('../assets/search.svg');
+        background-image: url('./image/search.svg');
         background-position: center right;
         background-repeat: no-repeat;
         border-radius: 3px;

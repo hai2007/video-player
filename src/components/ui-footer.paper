@@ -7,6 +7,9 @@
         本网站由“你好2007”设计、开发和维护
     </footer>
 </template>
+<script>
+    export default {};
+</script>
 <style>
     footer {
         height: 97px;

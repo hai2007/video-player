@@ -27,7 +27,7 @@
             &>h2 {
                 display: inline-block;
                 vertical-align: top;
-                background-image: url('../assets/logo.png');
+                background-image: url('./image/logo.png');
                 background-repeat: no-repeat;
                 padding-left: 55px;
                 background-position: left center;
