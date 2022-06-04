@@ -7,12 +7,100 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="./logo.png">
     <title>Video Player</title>
+    <style>
+        footer {
+            height: 97px;
+            text-align: center;
+            line-height: 2em;
+            padding: 20px 0;
+            font-size: 14px;
+        }
+
+        footer a {
+            padding: 0 5px;
+            color: rgb(5, 100, 117);
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            color: rgb(3, 61, 71);
+            font-weight: 800;
+        }
+
+        header {
+            box-shadow: 0 0 7px 3px #d6d4d4;
+            line-height: 70px;
+        }
+
+        header>h2 {
+            display: inline-block;
+            vertical-align: top;
+            background-image: url('./image/logo.png');
+            background-repeat: no-repeat;
+            padding-left: 55px;
+            background-position: left center;
+            margin-left: 20px;
+            font-size: 20px;
+            background-size: 50px auto;
+        }
+
+        header>div {
+            float: right;
+            padding-right: 20px;
+        }
+
+        header>div>input {
+            height: 30px;
+            border: none;
+            outline: none;
+            padding: 0 10px;
+            padding-right: 35px;
+            background-image: url('./image/search.svg');
+            background-position: center right;
+            background-repeat: no-repeat;
+            border-radius: 3px;
+            background-color: rgb(243 240 240);
+        }
+
+        #root {
+            width: 100vw;
+            min-height: calc(100vh - 176px);
+            background-color: #d5d3d4;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function goSearch() {
+
+            // 如果是回车就带着数据跳转到查询界面
+            if (event.keyCode == 13) {
+                var aEl = document.createElement('a');
+                aEl.setAttribute('href', "https://hai2007.gitee.io/sweethome/#/search?wd=" + encodeURIComponent(event.target.value))
+                aEl.setAttribute('target', '_blank');
+                aEl.click();
+            }
+        }
+    </script>
 </head>
 
 <body>
 
-    <!-- 挂载结点 -->
+    <header>
+        <h2>
+            Video Player
+        </h2>
+        <div>
+            <input placeholder="输入内容后回车查询" onKeydown='goSearch()' />
+        </div>
+    </header>
     <div id="root"></div>
+    <footer>
+        Copyright © 2021-2022
+        <a href="https://hai2007.github.io/SweetHome/" target="_blank">hai2007 走一步，再走一步。</a>
+        All rights reserved.
+        <br />
+        本网站由“你好2007”设计、开发和维护
+    </footer>
 
     <!-- 打包文件 -->
     <script>
@@ -26,7 +114,7 @@
         var script = document.createElement('script');
 
         // 设置属性
-        script.src = "./build/main@v0.3.0.js";
+        script.src = "./build/video-player.js";
 
         if (/^127\.0\.0\.1/.test(host) || /^localhost/.test(host)) {
             script.type = 'module';
@@ -34,6 +122,14 @@
 
         // 追加到页面
         head.appendChild(script);
+
+        script.addEventListener('load', function () {
+
+            new VideoPlayer({
+                el: document.getElementById('root')
+            });
+
+        }, false);
 
     </script>
 

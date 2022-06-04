@@ -1,5 +1,5 @@
 const QuickPaperLoaderPlugin = require('@etcpack/quickpaper-loader-plug');
-const pkg = JSON.parse(require('fs').readFileSync('./package.json'));
+const CommonjsPlug = require('@etcpack/commonjs-plug');
 
 module.exports = {
 
@@ -7,12 +7,7 @@ module.exports = {
     entry: './src/entry.js',
 
     // 打包出口
-    output: 'build/main@v' + pkg.version + '.js',
-
-    redirect: {
-        'quick-paper': "./src/lib/quick-paper.js",
-        'open-web-editor':'./src/lib/open-web-editor.js'
-    },
+    output: 'build/video-player.js',
 
     loader: [{
         test: /\.js$/,
@@ -20,12 +15,13 @@ module.exports = {
     },
     {
         test: /\.(css|scss)$/,
-        handler: ['@etcpack/quickpaper-style-loader', '@etcpack/scss-loader']
+        handler: ['@etcpack/quickpaper-style-loader', '@etcpack/css-loader', '@etcpack/scss-loader']
     }, {
         test: /\.paper$/,
         handler: ['@etcpack/quickpaper-loader']
     }],
     plug: [
-        new QuickPaperLoaderPlugin()
+        new QuickPaperLoaderPlugin(),
+        new CommonjsPlug()
     ]
 };

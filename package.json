@@ -1,10 +1,12 @@
 {
-  "name": "video-player",
-  "version": "0.3.0",
+  "name": "@hai2007/video-player",
+  "version": "1.0.0",
   "description": "在线视频播放器",
+  "main": "./build/video-player.min.js",
   "scripts": {
     "dev": "etcpack_dev --config etcpack.dev.js",
-    "build": "etcpack_pkg --config etcpack.prod.js"
+    "build": "nodejs -e build && etcpack_pkg --config etcpack.prod.js && npm run min && nodejs --config ./nodejs.config.js",
+    "min": "uglifyjs ./build/video-player.js -m -o ./build/video-player.min.js"
   },
   "repository": {
     "type": "git",
@@ -29,10 +31,14 @@
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@etcpack/babel-loader": "^0.1.1",
+    "@etcpack/commonjs-plug": "^0.1.0",
+    "@etcpack/css-loader": "^0.1.0",
     "@etcpack/quickpaper-loader": "^0.1.0",
     "@etcpack/quickpaper-loader-plug": "^0.1.0",
     "@etcpack/quickpaper-style-loader": "^0.1.0",
     "@etcpack/scss-loader": "^0.1.1",
-    "etcpack": "^0.4.1"
+    "@hai2007/nodejs": "^3.0.1",
+    "etcpack": "^0.11.0",
+    "uglify-js": "^3.11.6"
   }
 }

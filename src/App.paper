@@ -1,38 +1,32 @@
 <template>
-    <ui-header></ui-header>
-    <div class="video">
-        <div class="view" :is-null='videoSrc==""?"yes":"no"'>
+    <div class="video" :is-null='videoSrc==""?"yes":"no"'>
 
-            <!-- 播放器 -->
-            <video :src="videoSrc" width='960px' height="540px" id='video'></video>
+        <!-- 播放器 -->
+        <video :src="videoSrc" width='960px' height="540px" id='video'></video>
 
-            <!-- 打开视频开关 -->
-            <div class="open">
-                <label for="file" title='点击我选择打开的视频'>
-                    选择视频
-                </label>
-                <input type="file" @change='selectVideo()' accept="video/*" id='file'>
-            </div>
-
-            <div class="controls">
-                <button @click='doPlay' class='play' :is-hidden='isPlay?"yes":"no"'>
-                    播放
-                </button>
-                <button @click='doPause' class='pause' :is-hidden='isPlay?"no":"yes"'>
-                    暂停
-                </button>
-                <button @click='doFull' class='full'>
-                    最大化
-                </button>
-            </div>
-
+        <!-- 打开视频开关 -->
+        <div class="open">
+            <label for="file" title='点击我选择打开的视频'>
+                选择视频
+            </label>
+            <input type="file" @change='selectVideo()' accept="video/*" id='file'>
         </div>
+
+        <div class="controls">
+            <button @click='doPlay' class='play' :is-hidden='isPlay?"yes":"no"'>
+                播放
+            </button>
+            <button @click='doPause' class='pause' :is-hidden='isPlay?"no":"yes"'>
+                暂停
+            </button>
+            <button @click='doFull' class='full'>
+                最大化
+            </button>
+        </div>
+
     </div>
-    <ui-footer></ui-footer>
 </template>
 <script>
-    import uiHeader from './components/ui-header.paper';
-    import uiFooter from './components/ui-footer.paper';
 
     export default {
         data() {
@@ -40,10 +34,6 @@
                 videoSrc: "",
                 isPlay: false
             };
-        },
-        component: {
-            uiHeader,
-            uiFooter
         },
         methods: {
             selectVideo(event) {
@@ -66,112 +56,105 @@
 </script>
 <style>
     .video {
-        width: 100vw;
-        min-height: calc(100vh - 176px);
-        background-color: #d5d3d4;
-        text-align: center;
+        width: 960px;
+        display: inline-block;
+        margin: 20px;
+        position: relative;
 
-        &>.view {
-            width: 960px;
+        &>video {
+            background-color: black;
+        }
+
+        &>.open {
+            position: absolute;
+            z-index: 1;
+
+            &>label {
+                display: inline-block;
+                font-size: 0;
+                background-image: url('../image/logo.png');
+                background-size: 100% auto;
+                cursor: pointer;
+            }
+
+            &>input {
+                display: none;
+            }
+        }
+
+        &>.controls {
             display: inline-block;
-            margin: 20px;
+            width: 960px;
+            height: 50px;
+            background-color: white;
+            text-align: left;
+            padding-left: 60px;
             position: relative;
+            top: -3px;
 
-            &>video {
-                background-color: black;
+            &>button {
+                height: 100%;
+                width: 50px;
+                background-color: transparent;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                background-size: 100% auto;
+                font-size: 0;
+
+                &.play {
+                    background-image: url('../image/start.png');
+                }
+
+                &.pause {
+                    background-image: url('../image/pause.png');
+                }
+
+                &.full {
+                    float: right;
+                    background-image: url('../image/full.png');
+                    font-size: 0;
+                    background-repeat: no-repeat;
+                    background-size: 65% auto;
+                    background-position: center center;
+
+                    &:hover {
+                        background-size: 70% auto;
+                    }
+                }
+            }
+
+            &>[is-hidden='yes'] {
+                display: none;
+            }
+        }
+
+
+        &[is-null='yes'] {
+            &>.controls {
+                display: none;
             }
 
             &>.open {
-                position: absolute;
-                z-index: 1;
+                left: 405px;
+                top: 195px;
 
                 &>label {
-                    display: inline-block;
-                    font-size: 0;
-                    background-image: url('./image/logo.png');
-                    background-size: 100% auto;
-                    cursor: pointer;
-                }
-
-                &>input {
-                    display: none;
+                    width: 150px;
+                    height: 150px;
                 }
             }
+        }
 
-            &>.controls {
-                display: inline-block;
-                width: 960px;
-                height: 50px;
-                background-color: white;
-                text-align: left;
-                padding-left: 60px;
-                position: relative;
-                top: -3px;
+        &[is-null='no'] {
+            &>.open {
+                left: 5px;
+                top: 525px;
 
-                &>button {
-                    height: 100%;
+                &>label {
                     width: 50px;
-                    background-color: transparent;
-                    outline: none;
-                    border: none;
-                    cursor: pointer;
-                    background-size: 100% auto;
-                    font-size: 0;
-
-                    &.play {
-                        background-image: url('./image/start.png');
-                    }
-
-                    &.pause {
-                        background-image: url('./image/pause.png');
-                    }
-
-                    &.full {
-                        float: right;
-                        background-image: url('./image/full.png');
-                        font-size: 0;
-                        background-repeat: no-repeat;
-                        background-size: 65% auto;
-                        background-position: center center;
-
-                        &:hover {
-                            background-size: 70% auto;
-                        }
-                    }
-                }
-
-                &>[is-hidden='yes'] {
-                    display: none;
-                }
-            }
-
-
-            &[is-null='yes'] {
-                &>.controls {
-                    display: none;
-                }
-
-                &>.open {
-                    left: 405px;
-                    top: 195px;
-
-                    &>label {
-                        width: 150px;
-                        height: 150px;
-                    }
-                }
-            }
-
-            &[is-null='no'] {
-                &>.open {
-                    left: 5px;
-                    top: 525px;
-
-                    &>label {
-                        width: 50px;
-                        height: 50px;
-                        border-right: 1px solid #9e9e9e;
-                    }
+                    height: 50px;
+                    border-right: 1px solid #9e9e9e;
                 }
             }
         }
