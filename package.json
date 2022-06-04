@@ -1,6 +1,6 @@
 {
   "name": "@hai2007/video-player",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "在线视频播放器",
   "main": "./build/video-player.min.js",
   "scripts": {

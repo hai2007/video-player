@@ -24,7 +24,7 @@ npm install --save @hai2007/video-player
 - 特别注意：当前最后一个可用版本（非beta和alpha版本）请查看master分支的说明！
 
 ```js
-import VideoPlayer from 'video-player';
+import VideoPlayer from '@hai2007/video-player';
 
 new VideoPlayer({
 

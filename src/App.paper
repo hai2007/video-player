@@ -58,7 +58,6 @@
     .video {
         width: 960px;
         display: inline-block;
-        margin: 20px;
         position: relative;
 
         &>video {
